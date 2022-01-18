@@ -27,7 +27,7 @@ router.post(
       throw new BadRequestError("Email is already in use!")
     }
 
-    const user = await User.build({ email, password })
+    const user = User.build({ email, password })
     await user.save()
 
     // Generate JWT
