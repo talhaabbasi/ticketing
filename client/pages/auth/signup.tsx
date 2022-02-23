@@ -1,11 +1,11 @@
 import type { NextPage } from "next"
-import { useState } from "react"
+import { FormEvent, useState } from "react"
 
 const SignUp: NextPage = () => {
   const [email,setEmail] = useState("")
   const [password,setPassword] = useState("")
 
-  const onSubmit = (e: any) => {
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
   }
