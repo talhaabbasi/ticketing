@@ -5,14 +5,19 @@ import axios from "axios"
 const SignUp: NextPage = () => {
   const [email,setEmail] = useState("")
   const [password,setPassword] = useState("")
+  const [errors,setErrors] = useState([])
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-
+    try{
     const response = await axios.post('/api/users/signup', {
       email, password
     })
     console.log(response.data);
+  }
+  catch(err: any) {
+    setErrors(err.response.data.errors)
+  }
   }
   return (
     <form onSubmit={onSubmit}>
