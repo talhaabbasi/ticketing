@@ -1,13 +1,8 @@
-FROM node:14.17-alpine
+FROM node:alpine
 
-RUN mkdir -p /app/ && chown -R node:node /app
 WORKDIR /app
-COPY --chown=node:node . .
+COPY package.json .
+RUN npm install
+COPY . .
 
-USER node
-
-RUN yarn install --frozen-lockfile
-RUN yarn build
-
-EXPOSE 3000
-CMD [ "yarn", "start" ]
+CMD ["npm", "run", "dev"]
