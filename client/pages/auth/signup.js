@@ -1,5 +1,4 @@
 import { useState } from "react"
-import axios from "axios"
 import useRequest from "../../hooks/use-request"
 
 export default () => {
@@ -12,11 +11,11 @@ export default () => {
       email,
       password,
     },
+    onSuccess: () => Router.push("/"),
   })
 
   const onSubmit = async (event) => {
     event.preventDefault()
-
     doRequest()
   }
 
