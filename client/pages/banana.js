@@ -1,3 +1,5 @@
-export default () => {
-  return <h1>Banana</h1>;
-};
+const Banana = () => {
+  return <h1>Banana</h1>
+}
+
+export default Banana
